@@ -1,26 +1,28 @@
-import Ajv from 'ajv';
+import Ajv from "ajv";
 
 const envSchema = {
-  type: 'object',
+  type: "object",
   properties: {
-    PORT: { type: 'string' },
-    HOST: { type: 'string' },
-    NODE_ENV: { type: 'string', enum: ['development', 'production', 'test'] }
+    PORT: { type: "string" },
+    HOST: { type: "string" },
+    NODE_ENV: { type: "string", enum: ["development", "production", "test"] },
   },
-  required: ['PORT', 'HOST', 'NODE_ENV'],
-  additionalProperties: true
+  required: ["PORT", "HOST", "NODE_ENV"],
+  additionalProperties: true,
 };
 
 const ajv = new Ajv();
 const validate = ajv.compile(envSchema);
 
 if (!validate(process.env)) {
-  console.warn('  Invalid or missing environment variables! Defaults will be used.');
-  console.warn('   Errors:', ajv.errorsText(validate.errors));
+  console.warn(
+    "  Invalid or missing environment variables! Defaults will be used.",
+  );
+  console.warn("   Errors:", ajv.errorsText(validate.errors));
 }
 
 export default {
-  port: process.env.PORT || '8081',
-  host: process.env.HOST || '0.0.0.0',
-  env: process.env.NODE_ENV || 'production'
+  port: process.env.PORT || "8081",
+  host: process.env.HOST || "0.0.0.0",
+  env: process.env.NODE_ENV || "production",
 };

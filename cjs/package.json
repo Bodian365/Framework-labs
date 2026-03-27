@@ -2,13 +2,40 @@
   "name": "cjs-architecture-challenge",
   "version": "1.0.0",
   "main": "server.js",
+  "imports": {
+    "#controllers/*": "./controllers/*",
+    "#routes/*": "./routes/*",
+    "#services/*": "./services/*",
+    "#repositories/*": "./repositories/*",
+    "#validators/*": "./validators/*",
+    "#config/*": "./config/*",
+    "#plugins/*": "./plugins/*",
+    "#state/*": "./state/*",
+    "#utils/*": "./utils/*",
+    "#data/*": "./data/*"
+  },
   "scripts": {
     "start": "node --env-file=.env server.js",
-    "dev": "node --watch --env-file=.env server.js"
+    "dev": "node --watch --env-file=.env server.js",
+    "predev": "npm run check",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run lint && npm run format:check"
   },
   "dependencies": {
-    "ajv": "^8.12.0",
+    "ajv": "^8.18.0",
     "ajv-formats": "^2.1.1",
-    "fastify": "^4.26.1"
+    "fastify": "^4.29.1",
+    "fastify-plugin": "^5.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.4.0",
+    "prettier": "^3.8.1"
   }
 }

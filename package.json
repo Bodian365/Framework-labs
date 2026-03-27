@@ -6,5 +6,11 @@
     "setup": "cd cjs-challenge && npm install && cd ../esm-challenge && npm install",
     "start:cjs": "cd cjs-challenge && npm start",
     "start:esm": "cd esm-challenge && npm start"
+  },
+  "devDependencies": {
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.1"
   }
 }

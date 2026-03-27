@@ -1,6 +1,6 @@
-import * as userRepository from '../repositories/user.repository.js';
-import { count } from '../state/request-counter.js';
-import { initPermissions } from '../services/user.service.js';
+import * as userRepository from "../repositories/user.repository.js";
+import { count } from "../state/request-counter.js";
+import { initPermissions } from "../services/user.service.js";
 
 initPermissions();
 
@@ -11,16 +11,16 @@ export const getUsers = async (request, reply) => {
   return { users };
 };
 
-const getUserById = async (request, reply) => {
+export const getUserById = async (request, reply) => {
   count++;
   const { id } = request.params;
   const user = await userRepository.findById(id);
   if (!user) {
-    return reply.status(404).send({ error: 'User not found' });
+    return reply.status(404).send({ error: "User not found" });
   }
   return { user };
 };
 
-export default {
-  getUserById
-};
+// export default {
+//   getUserById
+// };
