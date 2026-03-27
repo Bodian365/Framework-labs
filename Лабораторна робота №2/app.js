@@ -1,7 +1,7 @@
 const http = require("http");
 const config = require("./config");
 
-// --- ЛОГУВАННЯ (Варіант 2) ---
+// --- ЛОГУВАННЯ ---
 function logMessage(level, method, path, message, status) {
   if (config.NODE_ENV === "production" && status < 400) return;
 
