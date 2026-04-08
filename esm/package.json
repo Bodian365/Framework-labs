@@ -1,0 +1,16 @@
+{
+  "name": "esm-architecture-challenge",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "dev": "node --watch --env-file=.env server.js"
+  },
+  "dependencies": {
+    "ajv": "^8.18.0",
+    "ajv-formats": "^2.1.1",
+    "fastify": "^5.8.4",
+    "fastify-plugin": "^5.1.0"
+  }
+}
